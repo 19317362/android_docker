@@ -1,3 +1,4 @@
+apache2-utils
 bc
 bison
 build-essential
@@ -7,6 +8,7 @@ cmake
 curl
 diffstat
 flex
+g++
 g++-multilib
 gawk
 gcc
@@ -24,6 +26,7 @@ liblz4-tool
 libsdl1.2-dev
 libssl-dev
 libx11-dev
+libxml2-dev
 libxml2-utils
 locales
 openjdk-8-jdk
@@ -35,6 +38,8 @@ python-wand
 realpath
 socat
 software-properties-common
+sshfs
+supervisor
 texinfo
 unzip
 wget
