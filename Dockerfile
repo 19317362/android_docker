@@ -32,5 +32,5 @@ RUN apt-get update && \
 VOLUME /workspace
 ENV USER android
 USER android
-
+EXPOSE 80
 CMD ["node", "/cloud9/server.js", "--listen 0.0.0.0", "--port", "80", "-w", "/workspace"
