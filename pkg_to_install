@@ -42,7 +42,9 @@ software-properties-common
 sshfs
 supervisor
 texinfo
+tmux
 unzip
+vim
 wget
 x11proto-core-dev
 xsltproc
