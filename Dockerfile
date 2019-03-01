@@ -14,7 +14,7 @@ RUN apt-get update && \
     add-apt-repository ppa:deadsnakes/ppa && \
     apt-get update && \
     curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash && \
-    curl -i /tini https://github.com/krallin/tini/releases/download/v0.18.0/tini &&\
+    curl -o /tini https://github.com/krallin/tini/releases/download/v0.18.0/tini &&\
     chmod +x /tini && \
     apt-get install git-lfs && \
     git lfs install && \
