@@ -26,12 +26,12 @@ RUN apt-get update && \
     git clone https://github.com/c9/core.git /cloud9 && \
     chown -R android /cloud9 && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
-    mkdir /workspace && \
+    mkdir /workspace
 
 ENV USER android
 USER android
 RUN cd /cloud9 && scripts/install-sdk.sh && \
-    sed -i -e 's_127.0.0.1_0.0.0.0_g' /cloud9/configs/standalone.js && \
+    sed -i -e 's_127.0.0.1_0.0.0.0_g' /cloud9/configs/standalone.js
 
 VOLUME /workspace
 EXPOSE 80
