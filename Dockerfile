@@ -22,16 +22,18 @@ RUN apt-get update && \
     python3 /tmp/get-pip.py && \
     curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
     apt-get install -y nodejs && \
-    git clone https://github.com/c9/core.git /cloud9 && \
-    cd /cloud9 && scripts/install-sdk.sh && \
-    sed -i -e 's_127.0.0.1_0.0.0.0_g' /cloud9/configs/standalone.js && \
-    mkdir /workspace && \
     useradd -ms /bin/bash android && \
-    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    git clone https://github.com/c9/core.git /cloud9 && \
+    chown -R android /cloud9 && \
+    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
+    mkdir /workspace && \
 
-VOLUME /workspace
 ENV USER android
 USER android
+RUN cd /cloud9 && scripts/install-sdk.sh && \
+    sed -i -e 's_127.0.0.1_0.0.0.0_g' /cloud9/configs/standalone.js && \
+
+VOLUME /workspace
 EXPOSE 80
-ENTRYPOINT ["/usr/bin/node", "/cloud9/server.js", "--listen 0.0.0.0", "--port", "8080", "-w", "/workspace", "--auth"]
-# add a login/passwd in the command arguments!
+ENTRYPOINT ["/usr/bin/node", "/cloud9/server.js", "--listen 0.0.0.0", "--port", "8080", "-w", "/workspace"]
+# frontend should manage auth!
