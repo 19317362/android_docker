@@ -33,4 +33,5 @@ VOLUME /workspace
 ENV USER android
 USER android
 EXPOSE 80
-CMD ["node", "/cloud9/server.js", "--listen 0.0.0.0", "--port", "80", "-w", "/workspace"
+ENTRYPOINT ["/usr/bin/node", "/cloud9/server.js", "--listen 0.0.0.0", "--port", "8080", "-w", "/workspace", "--auth"]
+# add a login/passwd in the command arguments!
